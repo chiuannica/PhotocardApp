@@ -15,10 +15,10 @@ import com.example.photocardapp.databinding.PhotocardBinding
 import com.example.photocardapp.models.PhotocardModel
 
 class PhotocardsAdapter() : ListAdapter<PhotocardModel, PhotocardsAdapter.PhotocardViewHolder>(PhotocardDiffCallback()) {
-    private var onItemClickListener: PhotocardItemClickListener? = null
+    private var photocardItemClickListener: PhotocardItemClickListener? = null
 
     fun setOnItemClickListener(listener: PhotocardItemClickListener) {
-        onItemClickListener = listener
+        photocardItemClickListener = listener
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotocardViewHolder {
         // Inflate the item layout using data binding
@@ -30,7 +30,7 @@ class PhotocardsAdapter() : ListAdapter<PhotocardModel, PhotocardsAdapter.Photoc
         val photocard = getItem(position)
         holder.bind(photocard)
         holder.itemView.setOnClickListener {
-            onItemClickListener?.onItemClick(photocard)
+            photocardItemClickListener?.onItemClick(photocard)
         }
     }
 

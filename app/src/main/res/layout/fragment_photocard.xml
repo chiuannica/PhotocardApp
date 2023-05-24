@@ -41,6 +41,32 @@
             android:layout_margin="@dimen/mid_size_margin"
             tools:src="@tools:sample/avatars" />
 
+
+        <TextView
+            android:id="@+id/date_received_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/notes_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_edit_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_note_button" />
+
+
     </LinearLayout>
 
 

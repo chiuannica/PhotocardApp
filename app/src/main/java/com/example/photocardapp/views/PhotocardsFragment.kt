@@ -3,11 +3,13 @@ package com.example.photocardapp.views
 import PhotocardFragment
 import PhotocardItemClickListener
 import PhotocardsViewModel
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.photocardapp.R
 import com.example.photocardapp.adapters.PhotocardsAdapter
@@ -28,6 +30,7 @@ class PhotocardsFragment() : Fragment(), PhotocardItemClickListener {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val sharedPreferencesRepository = SharedPreferencesRepository(requireContext())
@@ -36,6 +39,7 @@ class PhotocardsFragment() : Fragment(), PhotocardItemClickListener {
         observePhotocards()
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun observePhotocards() {
         viewModel.photocardsLiveData.observe(viewLifecycleOwner) { photocards ->
             adapter.submitList(photocards)
