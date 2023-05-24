@@ -31,10 +31,10 @@ class FirstFragment : Fragment() {
 
         binding.apply {
             buttonFirst.setOnClickListener {
-                findNavController().navigate(R.id.action_FirstFragment_to_PhotocardsFragment)
+                findNavController().navigate(R.id.action_global_PhotocardsFragment)
             }
             buttonChoose.setOnClickListener {
-                findNavController().navigate(R.id.action_FirstFragment_to_ChooseFragment)
+                findNavController().navigate(R.id.action_global_ChooseFragment)
             }
         }
     }

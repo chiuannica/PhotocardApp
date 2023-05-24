@@ -3,22 +3,19 @@ package com.example.photocardapp.views
 import PhotocardFragment
 import PhotocardItemClickListener
 import PhotocardsViewModel
-import android.os.Build
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.photocardapp.R
 import com.example.photocardapp.adapters.PhotocardsAdapter
 import com.example.photocardapp.databinding.PhotocardsBinding
 import com.example.photocardapp.models.PhotocardModel
+import com.example.photocardapp.repository.SharedPreferencesRepository
 
-class PhotocardsFragment : Fragment(), PhotocardItemClickListener {
-
+class PhotocardsFragment() : Fragment(), PhotocardItemClickListener {
     private lateinit var viewModel: PhotocardsViewModel
     private lateinit var adapter: PhotocardsAdapter
 
@@ -31,16 +28,16 @@ class PhotocardsFragment : Fragment(), PhotocardItemClickListener {
         return binding.root
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[PhotocardsViewModel::class.java]
+        val sharedPreferencesRepository = SharedPreferencesRepository(requireContext())
+        viewModel = PhotocardsViewModel(sharedPreferencesRepository)
         viewModel.loadPhotocards()
         observePhotocards()
     }
 
     private fun observePhotocards() {
-        viewModel.photocardsLiveData().observe(viewLifecycleOwner) { photocards ->
+        viewModel.photocardsLiveData.observe(viewLifecycleOwner) { photocards ->
             adapter.submitList(photocards)
         }
     }

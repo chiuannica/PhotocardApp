@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/action_my_photocards"
+        android:icon="@drawable/baseline_grid_view_24"
+        android:title="My Photocards" />
+    <item
+        android:id="@+id/action_choose_photocard"
+        android:icon="@drawable/baseline_emoji_people_24"
+        android:title="Choose Photocard" />
+</menu>

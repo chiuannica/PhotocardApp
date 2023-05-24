@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,35 +8,36 @@
         android:id="@+id/FirstFragment"
         android:name="com.example.photocardapp.views.FirstFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_PhotocardsFragment"
-            app:destination="@id/PhotocardsFragment" />
-
-        <action
-            android:id="@+id/action_FirstFragment_to_ChooseFragment"
-            app:destination="@id/ChooseFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_first" />
 
     <fragment
         android:id="@+id/PhotocardsFragment"
         android:name="com.example.photocardapp.views.PhotocardsFragment"
         android:label="@string/photocards_fragment_label"
-        tools:layout="@layout/fragment_photocards">
-
-        <action
-            android:id="@+id/action_PhotocardsFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
-
-
+        tools:layout="@layout/fragment_photocards" />
 
     <fragment
         android:id="@+id/ChooseFragment"
         android:name="com.example.photocardapp.views.ChooseFragment"
         android:label="@string/choose_fragment_label"
-        tools:layout="@layout/fragment_choose">
+        tools:layout="@layout/fragment_choose" />
 
-    </fragment>
+    <action
+        android:id="@+id/action_global_FirstFragment"
+        app:destination="@id/FirstFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_PhotocardsFragment"
+        app:destination="@id/PhotocardsFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_ChooseFragment"
+        app:destination="@id/ChooseFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+
 </navigation>

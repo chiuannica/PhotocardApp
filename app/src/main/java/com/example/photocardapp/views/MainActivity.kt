@@ -1,8 +1,7 @@
 package com.example.photocardapp.views
+import PhotocardFragment
 import PhotocardsViewModel
 import android.content.Intent
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -12,11 +11,15 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.photocardapp.R
 import com.example.photocardapp.databinding.ActivityMainBinding
 import com.example.photocardapp.models.PhotocardModel
+import com.example.photocardapp.repository.SharedPreferencesRepository
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,22 +37,33 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        viewModel = ViewModelProvider(this)[PhotocardsViewModel::class.java]
+        val sharedPreferencesRepository = SharedPreferencesRepository(this)
+        viewModel = PhotocardsViewModel(sharedPreferencesRepository)
+
         viewModel.loadPhotocards()
-        viewModel.photocardsLiveData().observe(this) { photocards ->
+        viewModel.photocardsLiveData.observe(this) { photocards ->
             photocardsList = photocards
         }
 
         binding.fab.setOnClickListener {
             sendEmail()
         }
-//
-//        database = Room.d(applicationContext, PhotocardDatabase::class.java, "photocard-db")
-//            .build()
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            lateinit var fragment: Fragment
+            when (item.itemId) {
+                R.id.action_home ->
+                    navController.navigate(R.id.action_global_FirstFragment)
+                R.id.action_my_photocards ->
+                    navController.navigate(R.id.action_global_PhotocardsFragment)
+                R.id.action_choose_photocard ->
+                    navController.navigate(R.id.action_global_ChooseFragment)
+            }
+            true
+        }
+
     }
 
     fun sendEmail() {

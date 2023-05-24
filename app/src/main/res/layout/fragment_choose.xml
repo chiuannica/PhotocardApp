@@ -15,6 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/mid_size_margin"
             android:orientation="horizontal">
 
             <ImageButton
@@ -40,20 +41,22 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/text_view_alert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:autoSizeMaxTextSize="@dimen/large_font_size"
+            android:textAlignment="center"
+            android:textSize="@dimen/large_font_size" />
+
         <ImageView
             android:id="@+id/image_view_award"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_margin="@dimen/mid_size_margin"
             tools:src="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/text_view_alert"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="@dimen/large_font_size"
-            android:text="TextView" />
 
     </LinearLayout>
 
