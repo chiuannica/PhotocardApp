@@ -6,59 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".views.FirstFragment">
 
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/large_size_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TableRow
+        <ImageView
+            android:id="@+id/image_view_first"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="500dp"
+            tools:src="@tools:sample/avatars" />
 
-            <ImageView
-                android:id="@+id/image_view_first"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:src="@tools:sample/avatars" />
-        </TableRow>
-
-        <TableRow
+        <TextView
+            android:id="@+id/textview_first"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:text="@string/hello_first_fragment"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <TextView
-                android:id="@+id/textview_first"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hello_first_fragment" />
-        </TableRow>
-
-        <TableRow
+        <Button
+            android:id="@+id/button_first"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/hot_pink"
+            android:text="My photocards" />
 
-            <Button
-                android:id="@+id/button_first"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="My photocards" />
-        </TableRow>
-
-        <TableRow
+        <Button
+            android:id="@+id/button_choose"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/light_pink"
+            android:text="Choose a new photocard" />
 
-            <Button
-                android:id="@+id/button_choose"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Choose a new photocard" />
-        </TableRow>
-
-    </TableLayout>
-
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

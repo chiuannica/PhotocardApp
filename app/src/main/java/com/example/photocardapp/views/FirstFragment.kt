@@ -17,7 +17,7 @@ import com.example.photocardapp.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
-    private var yutaImage: String = "https://kpopping.com/documents/0d/0/social-widget/Yuta-facePicture(4).webp?v=de2b5"
+    private var yutaImage: String = "https://64.media.tumblr.com/4c413b46771e190a4c00cb4b51f7812e/tumblr_inline_po3so5cDRu1w1pmlp_1280.jpg"
 
     private val binding get() = _binding!!
 
@@ -42,7 +42,6 @@ class FirstFragment : Fragment() {
             Glide.with(requireContext())
                 .load(yutaImage)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .override(500, 800)
                 .centerCrop()
                 .into(imageViewFirst)
         }

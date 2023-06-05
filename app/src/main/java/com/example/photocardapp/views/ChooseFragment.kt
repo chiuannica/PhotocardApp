@@ -1,6 +1,7 @@
 package com.example.photocardapp.views
 
 import PhotocardsViewModel
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,13 +12,12 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.photocardapp.databinding.FragmentChooseBinding
 import com.example.photocardapp.repository.SharedPreferencesRepository
 
+@SuppressLint("NewApi")
 class ChooseFragment : Fragment() {
     private lateinit var viewModel: PhotocardsViewModel
     private lateinit var _binding: FragmentChooseBinding
     private val binding get() = _binding!!
 
-    private var yutaImage: String = "https://kpopping.com/documents/0d/0/social-widget/Yuta-facePicture(4).webp?v=de2b5"
-    private var yutaImage2: String = "https://i.pinimg.com/originals/3e/4b/d7/3e4bd73348d9665a956caff68c595764.jpg"
     private var correctCard: Int = 0
 
     override fun onCreateView(
@@ -33,24 +33,27 @@ class ChooseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val img = viewModel.getRandomPhotocard().imageUrl
+        var cardWidth = 250
+        var cardHeight = 400
         binding.apply {
             Glide.with(root)
-                .load(yutaImage)
-                .override(300, 500)
+                .load(img)
+                .override(cardWidth, cardHeight)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageViewOption1)
 
             Glide.with(root)
-                .load(yutaImage)
-                .override(300, 500)
+                .load(img)
+                .override(cardWidth, cardHeight)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageViewOption2)
 
             Glide.with(root)
-                .load(yutaImage)
-                .override(300, 500)
+                .load(img)
+                .override(cardWidth, cardHeight)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageViewOption3)
@@ -68,9 +71,21 @@ class ChooseFragment : Fragment() {
     }
 
     private fun disableCardSelection() {
-        binding.imageViewOption1.setOnClickListener(null)
-        binding.imageViewOption2.setOnClickListener(null)
-        binding.imageViewOption3.setOnClickListener(null)
+        binding.apply {
+            textViewChoose.visibility = View.INVISIBLE
+            Glide.with(root)
+                .clear(imageViewOption1)
+
+            Glide.with(root)
+                .clear(imageViewOption2)
+
+            Glide.with(root)
+                .clear(imageViewOption3)
+
+            imageViewOption1.setOnClickListener(null)
+            imageViewOption2.setOnClickListener(null)
+            imageViewOption3.setOnClickListener(null)
+        }
     }
 
     fun chooseCard(chosenCard: Int) {
@@ -85,16 +100,18 @@ class ChooseFragment : Fragment() {
     }
 
     private fun winCard() {
+        val img = viewModel.getRandomPhotocard().imageUrl
         Glide.with(requireContext())
-            .load(yutaImage)
+            .load(img)
             .into(binding.imageViewAward)
         binding.textViewAlert.text = "You won a new photocard!"
         viewModel.addNewPhotocard()
     }
 
     private fun lose() {
+        val img = viewModel.getRandomPhotocard().imageUrl
         Glide.with(requireContext())
-            .load(yutaImage2)
+            .load(img)
             .into(binding.imageViewAward)
         binding.textViewAlert.text = "You didn't win :("
     }

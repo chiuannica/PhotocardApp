@@ -18,4 +18,5 @@
     <string name="edit_note_button">Edit Note</string>
     <string name="button_save_note">Save</string>
     <string name="label_save_note">Save note</string>
+    <string name="choose_one">Choose One</string>
 </resources>

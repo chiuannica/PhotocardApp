@@ -1,31 +1,24 @@
 package com.example.photocardapp.views
 
 import PhotocardsViewModel
-import android.os.Build
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
-import androidx.core.text.set
-import com.example.photocardapp.R
+import android.widget.Toast
 import com.example.photocardapp.databinding.FragmentEditNoteBinding
 import com.example.photocardapp.models.PhotocardModel
+import com.example.photocardapp.repository.SharedPreferencesRepository
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
+@SuppressLint("NewApi")
 class EditNoteFragment : Fragment() {
 
-    var _binding: FragmentEditNoteBinding? = null
+    private var _binding: FragmentEditNoteBinding? = null
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var photocard: PhotocardModel
+    private lateinit var viewModel: PhotocardsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,14 +30,28 @@ class EditNoteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val photocard = arguments?.getParcelable<PhotocardModel>("photocard")
+        viewModel = PhotocardsViewModel(SharedPreferencesRepository(requireContext()))
+        photocard = arguments?.getParcelable<PhotocardModel>("photocard")!!
+
         if (photocard != null) {
             binding.apply {
                 editTextNote.setText(photocard.notes)
-//                buttonSaveNote.setOnClickListener(
-//                )
-//                    // WIP
+
+                buttonSaveNote.setOnClickListener {
+                    saveNote()
+                }
             }
         }
     }
+
+    fun saveNote() {
+        val newNotes = binding.editTextNote.text.toString()
+        photocard.notes = newNotes
+
+        viewModel.saveNotesPhotocard(photocard)
+
+        println("New note: $newNotes")
+        Toast.makeText(requireContext(), "Saved Note", Toast.LENGTH_SHORT).show()
+    }
+
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,35 +7,51 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_size_margin"
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/text_view_choose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/mid_size_margin"
+            android:text="@string/choose_one"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="@dimen/large_font_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/small_size_margin"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/image_view_option_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_size_margin"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
                 tools:src="@tools:sample/avatars" />
 
             <ImageButton
                 android:id="@+id/image_view_option_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_size_margin"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
                 tools:src="@tools:sample/avatars" />
 
             <ImageButton
                 android:id="@+id/image_view_option_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_size_margin"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
                 tools:src="@tools:sample/avatars" />
 
         </LinearLayout>
@@ -45,15 +60,14 @@
             android:id="@+id/text_view_alert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:autoSizeMaxTextSize="@dimen/large_font_size"
+            android:text=""
             android:textAlignment="center"
             android:textSize="@dimen/large_font_size" />
 
         <ImageView
             android:id="@+id/image_view_award"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="@dimen/mid_size_margin"
             tools:src="@tools:sample/avatars" />

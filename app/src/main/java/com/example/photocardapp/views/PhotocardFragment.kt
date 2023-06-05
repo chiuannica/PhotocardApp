@@ -27,7 +27,6 @@ class PhotocardFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val photocard = arguments?.getParcelable<PhotocardModel>("photocard")
@@ -38,7 +37,6 @@ class PhotocardFragment : Fragment() {
                 Glide.with(root)
                     .load(photocard.imageUrl)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .override(600, 800)  // Set the desired width and height
                     .centerCrop()        // Apply center crop transformation
                     .into(imageView)
                 dateReceivedTextView.text = photocard.dateReceived

@@ -45,8 +45,8 @@ class PhotocardsAdapter() : ListAdapter<PhotocardModel, PhotocardsAdapter.Photoc
                 Glide.with(binding.root)
                     .load(photocard.imageUrl)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .override(300, 500)  // Set the desired width and height
-                    .centerCrop()        // Apply center crop transformation
+//                    .override(400,600)
+                    .centerCrop()
                     .into(binding.imageView)
             }
         }

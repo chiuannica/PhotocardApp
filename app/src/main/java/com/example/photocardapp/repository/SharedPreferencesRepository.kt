@@ -19,6 +19,15 @@ class SharedPreferencesRepository(private val context: Context) {
         editor.apply()
     }
 
+    fun saveNotesPhotocard(newPhotocard: PhotocardModel, photocards: List<PhotocardModel>) {
+        for (index in 0 until photocards.size) {
+            if (photocards[index].id == newPhotocard.id) {
+                photocards[index].notes = newPhotocard.notes
+            }
+        }
+        savePhotocards(photocards)
+    }
+
     fun loadPhotocards(): List<PhotocardModel>? {
         val photocardsJson = sharedPrefs.getString(SHARED_PREF_NAME, null)
         return if (photocardsJson != null) {

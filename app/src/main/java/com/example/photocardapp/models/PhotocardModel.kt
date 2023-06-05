@@ -9,6 +9,6 @@ data class PhotocardModel(
     val idolName: String,
     val title: String,
     var dateReceived: String,
-    val notes: String,
+    var notes: String,
     val imageUrl: String
 ) : Parcelable

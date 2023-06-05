@@ -1,5 +1,10 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="small_size_margin">6dp</dimen>
     <dimen name="mid_size_margin">16dp</dimen>
+    <dimen name="large_size_margin">40dp</dimen>
+    <dimen name="huge_size_margin">120dp</dimen>
+    <dimen name="bar_margin">64dp</dimen>
+    <dimen name="above_bar_margin">64dp</dimen>
     <dimen name="large_font_size">20dp</dimen>
 </resources>
