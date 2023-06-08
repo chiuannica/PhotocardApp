@@ -1,26 +1,22 @@
 package com.example.photocardapp.views
-import PhotocardFragment
 import PhotocardsViewModel
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.photocardapp.R
 import com.example.photocardapp.databinding.ActivityMainBinding
 import com.example.photocardapp.models.PhotocardModel
 import com.example.photocardapp.repository.SharedPreferencesRepository
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
+@SuppressLint("NewApi")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var photocardsList: List<PhotocardModel>
@@ -45,9 +41,10 @@ class MainActivity : AppCompatActivity() {
             photocardsList = photocards
         }
 
-        binding.fab.setOnClickListener {
-            sendEmail()
-        }
+        binding.fab.hide()
+//        binding.fab.setOnClickListener {
+//            sendEmail()
+//        }
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
@@ -60,6 +57,8 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.action_global_PhotocardsFragment)
                 R.id.action_choose_photocard ->
                     navController.navigate(R.id.action_global_ChooseFragment)
+                R.id.action_yutaro ->
+                    navController.navigate(R.id.action_global_YutaroFragment)
             }
             true
         }

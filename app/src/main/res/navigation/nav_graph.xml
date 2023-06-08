@@ -22,6 +22,13 @@
         android:label="@string/choose_fragment_label"
         tools:layout="@layout/fragment_choose" />
 
+
+    <fragment
+        android:id="@+id/YutaroFragment"
+        android:name="com.example.photocardapp.views.YutaroFragment"
+        android:label="@string/choose_fragment_label"
+        tools:layout="@layout/fragment_yutaro" />
+
     <action
         android:id="@+id/action_global_FirstFragment"
         app:destination="@id/FirstFragment"
@@ -40,4 +47,9 @@
         app:popUpTo="@id/nav_graph"
         app:popUpToInclusive="true" />
 
+    <action
+        android:id="@+id/action_global_YutaroFragment"
+        app:destination="@id/YutaroFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
 </navigation>

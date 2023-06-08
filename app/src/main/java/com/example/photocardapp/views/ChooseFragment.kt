@@ -33,6 +33,10 @@ class ChooseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        reset()
+    }
+
+    private fun enableCardSelection() {
         val img = viewModel.getRandomPhotocard().imageUrl
         var cardWidth = 250
         var cardHeight = 400
@@ -69,7 +73,6 @@ class ChooseFragment : Fragment() {
             }
         }
     }
-
     private fun disableCardSelection() {
         binding.apply {
             textViewChoose.visibility = View.INVISIBLE
@@ -97,10 +100,12 @@ class ChooseFragment : Fragment() {
             lose()
         }
         disableCardSelection()
+        enableAgain()
     }
 
     private fun winCard() {
         val img = viewModel.getRandomPhotocard().imageUrl
+        enableAlert()
         Glide.with(requireContext())
             .load(img)
             .into(binding.imageViewAward)
@@ -110,9 +115,43 @@ class ChooseFragment : Fragment() {
 
     private fun lose() {
         val img = viewModel.getRandomPhotocard().imageUrl
-        Glide.with(requireContext())
-            .load(img)
-            .into(binding.imageViewAward)
-        binding.textViewAlert.text = "You didn't win :("
+        enableAlert()
+        binding.apply {
+            Glide.with(requireContext())
+                .load(img)
+                .into(imageViewAward)
+            textViewAlert.text = "You didn't win :("
+        }
+    }
+    private fun reset() {
+        disableAgain()
+        enableCardSelection()
+        disableAlert()
+    }
+    private fun enableAgain() {
+        binding.apply {
+            buttonChooseAgain.visibility = View.VISIBLE
+            buttonChooseAgain.setOnClickListener {
+                reset()
+            }
+        }
+    }
+    private fun disableAgain() {
+        binding.apply {
+            buttonChooseAgain.visibility = View.INVISIBLE
+        }
+    }
+    private fun enableAlert() {
+        binding.apply {
+            imageViewAward.visibility = View.VISIBLE
+            textViewAlert.visibility = View.VISIBLE
+        }
+    }
+
+    private fun disableAlert() {
+        binding.apply {
+            imageViewAward.visibility = View.INVISIBLE
+            textViewAlert.visibility = View.INVISIBLE
+        }
     }
 }

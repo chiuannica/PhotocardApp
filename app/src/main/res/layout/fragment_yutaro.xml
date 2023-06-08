@@ -3,34 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.ChooseFragment">
+    tools:context=".views.YutaroFragment">
+
+    <!-- TODO: Update blank fragment layout -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="@dimen/mid_size_margin"
-        android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_view_choose"
+            android:id="@+id/yutaro_title_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/choose_one"
+            android:text="@string/yutaro_label"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="@dimen/large_font_size" />
+            android:textSize="@dimen/large_font_size"/>
 
         <TextView
-            android:id="@+id/text_view_choose_desx"
+            android:id="@+id/yutaro_desc_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/choose_desc"
+            android:text="@string/yutaro_desc_label"
             android:textAlignment="center" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_size_margin"
             android:orientation="horizontal">
 
@@ -63,28 +64,56 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/text_view_alert"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textAlignment="center"
-            android:textSize="@dimen/large_font_size" />
+            android:layout_margin="@dimen/small_size_margin"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/image_view_award"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="@dimen/mid_size_margin"
-            tools:src="@tools:sample/avatars" />
+            <TextView
+                android:id="@+id/text_view_option_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/text_view_option_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/text_view_option_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:textAlignment="center" />
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/button_choose_again"
+            android:id="@+id/yutaro_again_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/deep_pink"
-            android:text="@string/button_choose_again" />
+            android:text="@string/yotaro_again" />
+
+        <TextView
+            android:id="@+id/yutaro_again_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:textAlignment="center" />
 
     </LinearLayout>
 

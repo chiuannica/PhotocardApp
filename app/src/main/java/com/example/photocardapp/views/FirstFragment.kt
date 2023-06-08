@@ -17,8 +17,7 @@ import com.example.photocardapp.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
-    private var yutaImage: String = "https://64.media.tumblr.com/4c413b46771e190a4c00cb4b51f7812e/tumblr_inline_po3so5cDRu1w1pmlp_1280.jpg"
-
+    private var yutaImage: String = "https://64.media.tumblr.com/735c8b2923a89acf09b3ee07cb930e89/1852844f89a4b3f1-47/s540x810/2876c600a05e5f0a4e0861d32db086a782b798d4.png"
     private val binding get() = _binding!!
 
     override fun onCreateView(

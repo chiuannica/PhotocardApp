@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">PhotocardApp</string>
+    <string name="app_name">Yuta Photocard App</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="photocards_fragment_label">Photocards Fragment</string>
     <string name="choose_fragment_label">Choose Fragment</string>
+    <string name="yutaro_fragment_label">Yutaro Fragment</string>
     <string name="notes_label">Notes: </string>
     <string name="date_received_label">Date Received: </string>
     <string name="next">Next</string>
@@ -15,8 +16,15 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="yutaro_label">Yutaro</string>
+    <string name="yutaro_desc_label">Yuta will use his intuition to give you advice</string>
+    <string name="yotaro_again">Yotaro Again</string>
     <string name="edit_note_button">Edit Note</string>
     <string name="button_save_note">Save</string>
-    <string name="label_save_note">Save note</string>
+    <string name="label_save_note">Notes</string>
     <string name="choose_one">Choose One</string>
+    <string name="choose_desc">Choose a card to win a photocard</string>
+    <string name="button_choose_again">Choose Again</string>
+
+
 </resources>

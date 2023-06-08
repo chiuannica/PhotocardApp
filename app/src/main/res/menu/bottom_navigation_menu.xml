@@ -7,9 +7,14 @@
     <item
         android:id="@+id/action_my_photocards"
         android:icon="@drawable/baseline_grid_view_24"
-        android:title="My Photocards" />
+        android:title="Photocards" />
     <item
         android:id="@+id/action_choose_photocard"
         android:icon="@drawable/baseline_emoji_people_24"
-        android:title="Choose Photocard" />
+        android:title="Choose" />
+
+    <item
+        android:id="@+id/action_yutaro"
+        android:icon="@drawable/baseline_whatshot_24"
+        android:title="Yutaro" />
 </menu>

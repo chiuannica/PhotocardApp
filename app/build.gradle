@@ -68,4 +68,7 @@ dependencies {
     // Navigation component
     implementation "androidx.navigation:navigation-fragment-ktx:2.4.0"
     implementation "androidx.navigation:navigation-ui-ktx:2.4.0"
+
+    // Async
+    implementation 'com.codepath.libraries:asynchttpclient:2.2.0'
 }

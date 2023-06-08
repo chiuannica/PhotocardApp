@@ -1,4 +1,5 @@
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -6,6 +7,11 @@ import com.example.photocardapp.models.PhotocardModel
 import com.example.photocardapp.repository.SharedPreferencesRepository
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import com.codepath.asynchttpclient.AsyncHttpClient;
+import com.codepath.asynchttpclient.RequestParams
+import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.codepath.asynchttpclient.callback.TextHttpResponseHandler
+import okhttp3.Headers
 
 @RequiresApi(Build.VERSION_CODES.O)
 class PhotocardsViewModel(private val sharedPreferencesRepository: SharedPreferencesRepository) : ViewModel() {
@@ -229,4 +235,6 @@ class PhotocardsViewModel(private val sharedPreferencesRepository: SharedPrefere
     fun getPhotocardById(id: Int): PhotocardModel {
         return samplePhotocards[id]
     }
+
+
 }
